@@ -1,0 +1,183 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>AI助教答疑平台</title>
+  <style>
+    * { box-sizing: border-box; }
+
+    html, body { min-height: 100%; }
+
+    body {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      overflow: hidden;
+      color: #1f2c45;
+      font-family: "Microsoft YaHei", "PingFang SC", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 50% 12%, rgba(255,255,255,.93) 0, rgba(255,255,255,.48) 24%, transparent 52%),
+        linear-gradient(135deg, #eef8ff 0%, #f7fbff 48%, #eaf5ff 100%);
+    }
+
+    .page {
+      width: min(100% - 40px, 760px);
+      text-align: center;
+      transform: translateY(-2vh);
+    }
+
+    .brand-icon {
+      width: 58px;
+      height: 58px;
+      margin: 0 auto 16px;
+      display: grid;
+      place-items: center;
+      border-radius: 18px;
+      color: #fff;
+      font-size: 27px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #4d9fff, #2879e9);
+      box-shadow: 0 10px 22px rgba(54, 129, 231, .22);
+    }
+
+    h1 {
+      margin: 0;
+      color: #203451;
+      font-size: clamp(29px, 5vw, 38px);
+      font-weight: 700;
+      letter-spacing: 1px;
+      line-height: 1.28;
+    }
+
+    .subtitle {
+      margin: 11px 0 35px;
+      color: #8a9ab0;
+      font-size: 16px;
+      letter-spacing: 1px;
+    }
+
+    .question-bar {
+      display: flex;
+      gap: 12px;
+      padding: 8px;
+      border: 1px solid rgba(218, 231, 246, .85);
+      border-radius: 16px;
+      background: rgba(255, 255, 255, .96);
+      box-shadow: 0 12px 30px rgba(63, 110, 161, .10);
+    }
+
+    .question-bar input {
+      min-width: 0;
+      flex: 1;
+      height: 48px;
+      padding: 0 14px;
+      outline: none;
+      border: 0;
+      color: #35445c;
+      font: inherit;
+      font-size: 15px;
+      background: transparent;
+    }
+
+    .question-bar input::placeholder { color: #a7b4c6; }
+
+    .ask-button {
+      min-width: 95px;
+      padding: 0 22px;
+      border: 0;
+      border-radius: 11px;
+      color: #fff;
+      cursor: pointer;
+      font: inherit;
+      font-size: 16px;
+      font-weight: 600;
+      background: linear-gradient(135deg, #4b9cff, #287ceb);
+      box-shadow: 0 6px 14px rgba(45, 123, 231, .24);
+      transition: transform .18s ease, box-shadow .18s ease;
+    }
+
+    .ask-button:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 9px 18px rgba(45, 123, 231, .3);
+    }
+
+    .answer-card {
+      position: relative;
+      margin-top: 22px;
+      padding: 27px 29px 28px;
+      text-align: left;
+      border: 1px solid rgba(224, 234, 246, .94);
+      border-radius: 17px;
+      background: rgba(255, 255, 255, .95);
+      box-shadow: 0 12px 30px rgba(63, 110, 161, .08);
+    }
+
+    .answer-card::before {
+      content: "";
+      position: absolute;
+      top: -7px;
+      left: 34px;
+      width: 13px;
+      height: 13px;
+      transform: rotate(45deg);
+      border-top: 1px solid rgba(224, 234, 246, .94);
+      border-left: 1px solid rgba(224, 234, 246, .94);
+      background: #fff;
+    }
+
+    .answer-heading {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+      margin-bottom: 13px;
+      color: #347fe8;
+      font-size: 15px;
+      font-weight: 600;
+    }
+
+    .answer-dot {
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: #4c9cff;
+      box-shadow: 0 0 0 4px #edf6ff;
+    }
+
+    .answer-card p {
+      margin: 0;
+      color: #65758c;
+      font-size: 15px;
+      line-height: 1.9;
+    }
+
+    @media (max-width: 520px) {
+      .page { width: min(100% - 28px, 760px); transform: none; }
+      .subtitle { margin-bottom: 27px; }
+      .question-bar { gap: 5px; padding: 6px; }
+      .question-bar input { padding: 0 8px; }
+      .ask-button { min-width: 78px; padding: 0 14px; }
+      .answer-card { padding: 23px 21px; }
+    }
+  </style>
+</head>
+<body>
+  <main class="page">
+    <div class="brand-icon" aria-hidden="true">AI</div>
+    <h1>AI助教答疑平台</h1>
+    <p class="subtitle">智能答疑·随时提问</p>
+
+    <form class="question-bar" onsubmit="return false;">
+      <input type="text" aria-label="输入你的问题" placeholder="请输入你想咨询的问题..." />
+      <button class="ask-button" type="submit">提问</button>
+    </form>
+
+    <section class="answer-card" aria-label="AI 回复">
+      <div class="answer-heading"><span class="answer-dot"></span>AI 助教</div>
+      <p>你好！我是你的 AI 助教。请输入你的问题，我会尽力为你解答。</p>
+    </section>
+  </main>
+</body>
+</html>
